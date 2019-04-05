@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Selena Yang 
  * @version 2019. 4. 5
  */
-public class MyWorld extends World
+public class Battleground extends World
 {
     //Showing introduction
         private boolean shouldBeShowingIntroduction;
@@ -14,7 +14,7 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    public MyWorld()
+    public Battleground()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(500, 500, 1); 
@@ -52,9 +52,9 @@ public class MyWorld extends World
     private void hideIntroduction()
     {
         this.showText("", 250, 75);
-        this.showText("", 250,175);
-        this.showText("", 250,235);
-        this.showText("", 250,335);
+        this.showText("", 250,255);
+        this.showText("", 250,295);
+        this.showText("", 250,385);
     }
     
     /**
