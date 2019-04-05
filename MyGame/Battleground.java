@@ -41,9 +41,9 @@ public class Battleground extends World
      private void showIntroduction()
      {
          this.showText("Welcome to Battleground", 250, 75);
-         this.showText("Press the tank to control", 250, 175);
-         this.showText("Don't get hit by the bullets and rocks", 250, 235);
-         this.showText("Press SPACE to start the game", 250, 335);
+         this.showText("Press the tank to control", 250, 235);
+         this.showText("Don't get hit by the bullets and rocks", 250, 275);
+         this.showText("Press SPACE to start the game", 250, 385);
         }   
         
     /**
@@ -52,8 +52,8 @@ public class Battleground extends World
     private void hideIntroduction()
     {
         this.showText("", 250, 75);
-        this.showText("", 250,255);
-        this.showText("", 250,295);
+        this.showText("", 250,235);
+        this.showText("", 250,275);
         this.showText("", 250,385);
     }
     
