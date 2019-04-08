@@ -10,6 +10,12 @@ public class Battleground extends World
 {
     //Showing introduction
         private boolean shouldBeShowingIntroduction;
+        private boolean gameOn;
+        private int frames;
+        private int time = 0;
+        public int score = 0;
+        
+        
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -66,7 +72,44 @@ public class Battleground extends World
         {
             this.shouldBeShowingIntroduction = false;
             this.hideIntroduction();
+            startGame();
         }
     }
+    
+    private void startGame()
+    {
+        gameOn = true;
+        frames = 0;
+        time = 0;
+        showTime();
+        showScore();
+    }
+    
+    private void showTime()
+    {
+        showText("Time:" + time, 100, 50);
+    }
+    
+    private void showScore()
+    {
+        showText("Score:" + score, 400, 50);
+    }
+       
+    /**
+     * Set Timer
+     */
+    private void trackTime()
+    {
+        // Track frames (fps is about 60)
+        frames += 1;
         
-}
+        //Reducing time
+        if(frames % 60 == 0)
+        {
+            time += 1;
+            showTime();
+        }
+        
+    }
+  }
+
