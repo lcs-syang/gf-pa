@@ -16,4 +16,5 @@ public class Obstacles extends Actor
     {
         // Add your action code here.
     }    
+    
 }

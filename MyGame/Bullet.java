@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -14,6 +15,23 @@ public class Bullet extends Obstacles
      */
     public void act() 
     {
-        // Add your action code here.
+        moveDown();
+        disappearAtEdge();
     }    
+
+    public void moveDown()
+    {
+        setRotation(90);
+        move(3);
+    }
+
+    public void disappearAtEdge()
+    {
+        if (isAtEdge())
+        {
+            getWorld().removeObject(this);
+        }
+    }
+
+    
 }
