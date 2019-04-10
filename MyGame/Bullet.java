@@ -1,8 +1,6 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
- * Write a description of class Bullet here.
+ * Write a description of class Rock here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -10,13 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Obstacles
 {
     /**
-     * Act - do whatever the Bullet wants to do. This method is called whenever
+     * Act - do whatever the Rock wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
         moveDown();
-        disappearAtEdge();
+        endGame();
     }    
 
     public void moveDown()
@@ -24,16 +22,16 @@ public class Bullet extends Obstacles
         setRotation(90);
         move(3);
     }
-
-    public void disappearAtEdge()
+    
+        public void endGame()
     {
         if (isAtEdge())
         {
-            getWorld().removeObject(this);
+            Battleground battleground = (Battleground)getWorld();
+            battleground.gameOn = false;
+            getWorld().showText("Game Over",300,200);           
+            getWorld().showText("",50,50);
+            getWorld().showText("",450,50);
         }
     }
-    
-    
-
-    
 }

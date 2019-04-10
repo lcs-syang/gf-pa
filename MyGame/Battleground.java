@@ -10,7 +10,7 @@ public class Battleground extends World
 {
     //Showing introduction
     private boolean shouldBeShowingIntroduction;
-    private boolean gameOn;
+    public boolean gameOn;
     private int frames;
     private int time;
     public int score;
@@ -33,6 +33,7 @@ public class Battleground extends World
      */
     public void act()
     {
+
         if (shouldBeShowingIntroduction)
         {
             showIntroduction();
@@ -87,6 +88,7 @@ public class Battleground extends World
         frames = 0;
         time = 0;
         showTime();
+        showScore();
         lookToAddObstacles();
         trackTime();
         addTank();
@@ -129,7 +131,7 @@ public class Battleground extends World
 
     private void lookToAddObstacles()
     {
-        if (frames % 60 == 0)
+        if (frames % 40 == 0)
         {
             addObstacles();
         }

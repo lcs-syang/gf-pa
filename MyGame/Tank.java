@@ -27,9 +27,7 @@ public class Tank extends Actor
 
         }        
 
-        
     }
-    
     private void removeObstacles()
     {
         if (isTouching(Obstacles.class))
