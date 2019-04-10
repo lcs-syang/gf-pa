@@ -32,6 +32,8 @@ public class Bullet extends Obstacles
             getWorld().removeObject(this);
         }
     }
+    
+    
 
     
 }

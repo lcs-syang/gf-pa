@@ -1,5 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class MyWorld here.
  * 
@@ -33,10 +33,15 @@ public class Battleground extends World
      */
     public void act()
     {
-        if(shouldBeShowingIntroduction)
+        if (shouldBeShowingIntroduction)
         {
             showIntroduction();
             lookForGameStart();
+        }
+        else if (gameOn)
+        {
+            trackTime();
+            lookToAddObstacles();
         }
     }
 
@@ -45,10 +50,10 @@ public class Battleground extends World
      */
     private void showIntroduction()
     {
-        this.showText("Welcome to Battleground", 250, 75);
-        this.showText("Press the tank to control", 250, 235);
-        this.showText("Don't get hit by the bullets and rocks", 250, 275);
-        this.showText("Press SPACE to start the game", 250, 385);
+        showText("Welcome to Battleground", 250, 75);
+        showText("Press the tank to control", 250, 235);
+        showText("Don't get hit by the bullets and rocks", 250, 275);
+        showText("Press SPACE to start the game", 250, 385);
     }   
 
     /**
@@ -56,10 +61,10 @@ public class Battleground extends World
      */
     private void hideIntroduction()
     {
-        this.showText("", 250, 75);
-        this.showText("", 250,235);
-        this.showText("", 250,275);
-        this.showText("", 250,385);
+        showText("", 250, 75);
+        showText("", 250,235);
+        showText("", 250,275);
+        showText("", 250,385);
     }
 
     /**
@@ -69,8 +74,8 @@ public class Battleground extends World
     {
         if(Greenfoot. isKeyDown("space"))
         {
-            this.shouldBeShowingIntroduction = false;
-            this.hideIntroduction();
+            shouldBeShowingIntroduction = false;
+            hideIntroduction();
             startGame();
 
         }
@@ -82,8 +87,9 @@ public class Battleground extends World
         frames = 0;
         time = 0;
         showTime();
-        showScore();
         lookToAddObstacles();
+        trackTime();
+        addTank();
 
     }
 
@@ -114,9 +120,16 @@ public class Battleground extends World
 
     }
 
+    public void addScore()
+    {
+        //Add score
+        score += 1;
+        showScore();
+    }
+
     private void lookToAddObstacles()
     {
-        if (frames % 120 == 0)
+        if (frames % 60 == 0)
         {
             addObstacles();
         }
@@ -137,6 +150,12 @@ public class Battleground extends World
             Rock rock = new Rock();
             addObject(rock, x, y);
         }
+    }
+
+    private void addTank()
+    {
+        Tank tank = new Tank();
+        addObject(tank, 300,400);
     }
 }
 
